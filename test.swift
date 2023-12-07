@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  test.swift
 //  Plain Text Editor
 //
 //  Created by Bartek Bak on 07/12/2023.
