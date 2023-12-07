@@ -17,7 +17,6 @@
 		98DB8C7F2B21D77700F2967D /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DB8C7E2B21D77700F2967D /* WindowManager.swift */; };
 		98DB8C812B21D77D00F2967D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DB8C802B21D77D00F2967D /* Constants.swift */; };
 		98DB8C872B21E75D00F2967D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DB8C862B21E75D00F2967D /* ContentView.swift */; };
-		98DB8C892B21FBE200F2967D /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DB8C882B21FBE200F2967D /* test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +32,6 @@
 		98DB8C7E2B21D77700F2967D /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
 		98DB8C802B21D77D00F2967D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		98DB8C862B21E75D00F2967D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		98DB8C882B21FBE200F2967D /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +48,6 @@
 		98DB8C5B2B21D4E700F2967D = {
 			isa = PBXGroup;
 			children = (
-				98DB8C882B21FBE200F2967D /* test.swift */,
 				98DB8C662B21D4E700F2967D /* Plain Text Editor */,
 				98DB8C652B21D4E700F2967D /* Products */,
 			);
@@ -164,7 +161,6 @@
 				98DB8C7D2B21D77000F2967D /* ShortcutManager.swift in Sources */,
 				98DB8C872B21E75D00F2967D /* ContentView.swift in Sources */,
 				98DB8C7F2B21D77700F2967D /* WindowManager.swift in Sources */,
-				98DB8C892B21FBE200F2967D /* test.swift in Sources */,
 				98DB8C772B21D75A00F2967D /* AppDelegate.swift in Sources */,
 				98DB8C7B2B21D76800F2967D /* FileHandler.swift in Sources */,
 				98DB8C682B21D4E700F2967D /* Plain_Text_EditorApp.swift in Sources */,
@@ -303,6 +299,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Plain Text Editor/Preview Content\"";
+				DEVELOPMENT_TEAM = 7CAU3XFRLQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -328,6 +325,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Plain Text Editor/Preview Content\"";
+				DEVELOPMENT_TEAM = 7CAU3XFRLQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
