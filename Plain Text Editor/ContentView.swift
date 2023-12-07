@@ -1,7 +1,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var appDelegate: AppDelegate
+    @StateObject var appDelegate: AppDelegate
+
+    init(appDelegate: AppDelegate) {
+        self._appDelegate = StateObject(wrappedValue: appDelegate)
+
+    }
 
     var body: some View {
         TextEditor(text: $appDelegate.text)
@@ -39,10 +44,8 @@ struct ContentView: View {
     }
 }
 
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(appDelegate: AppDelegate())
     }
 }
