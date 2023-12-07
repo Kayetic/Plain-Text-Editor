@@ -27,6 +27,7 @@ struct ContentView: View {
                 }
             }
             .onAppear {
+                NSApp.windows.first?.makeKeyAndOrderFront(nil)
                 self.appDelegate.updateWindowTitleClosure = self.updateWindowTitle
             }
     }
