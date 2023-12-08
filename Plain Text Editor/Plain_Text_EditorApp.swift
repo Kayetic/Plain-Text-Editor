@@ -5,7 +5,7 @@ import AppKit
 struct Plain_Text_EditorApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(appDelegate: AppDelegate())
+            ContentView(documentViewModel: DocumentViewModel())
                 .frame(minWidth: 300, maxWidth: .infinity, minHeight: 300, maxHeight: .infinity)
         }
         .commands {

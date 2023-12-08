@@ -1,15 +1,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var appDelegate: AppDelegate
+    @StateObject var documentViewModel: DocumentViewModel
 
-    init(appDelegate: AppDelegate) {
-        self._appDelegate = StateObject(wrappedValue: appDelegate)
-
+    init(documentViewModel: DocumentViewModel) {
+        self._documentViewModel = StateObject(wrappedValue: documentViewModel)
     }
 
     var body: some View {
-        TextEditor(text: $appDelegate.text)
+        TextEditor(text: $documentViewModel.text)
             .font(.custom("SFMono-Regular", size: 14))
             .padding()
             .frame(minWidth: 300, maxWidth: .infinity, minHeight: 300, maxHeight: .infinity)
@@ -22,30 +21,30 @@ struct ContentView: View {
                     .background(Color.white)
                 }
                 ToolbarItem(placement: .navigation) {
-                    if appDelegate.hasUnsavedChanges {
-                        Button(action: { self.appDelegate.saveDocument() }) {
+                    if documentViewModel.hasUnsavedChanges {
+                        Button(action: { self.documentViewModel.saveDocument() }) {
                             Image(systemName: "square.and.arrow.down")
-                                .opacity(appDelegate.hasUnsavedChanges ? 1.0 : 0.0)
-                                .animation(.easeInOut, value: appDelegate.hasUnsavedChanges)
+                                .opacity(documentViewModel.hasUnsavedChanges ? 1.0 : 0.0)
+                                .animation(.easeInOut, value: documentViewModel.hasUnsavedChanges)
                         }
                     }
                 }
             }
             .onAppear {
                 NSApp.windows.first?.makeKeyAndOrderFront(nil)
-                self.appDelegate.updateWindowTitleClosure = self.updateWindowTitle
+                self.documentViewModel.updateWindowTitleClosure = self.updateWindowTitle
             }
     }
 
     private func updateWindowTitle() {
         if let window = NSApplication.shared.windows.first {
-            window.title = appDelegate.currentFileURL?.lastPathComponent ?? "New Note"
+            window.title = documentViewModel.currentFileURL?.lastPathComponent ?? "New Note"
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(appDelegate: AppDelegate())
+        ContentView(documentViewModel: DocumentViewModel())
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		986F6BBB2B231E5600D5E0B9 /* DocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986F6BBA2B231E5600D5E0B9 /* DocumentViewModel.swift */; };
 		98DB8C682B21D4E700F2967D /* Plain_Text_EditorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DB8C672B21D4E700F2967D /* Plain_Text_EditorApp.swift */; };
 		98DB8C6C2B21D4E800F2967D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98DB8C6B2B21D4E800F2967D /* Assets.xcassets */; };
 		98DB8C6F2B21D4E800F2967D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98DB8C6E2B21D4E800F2967D /* Preview Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		986F6BBA2B231E5600D5E0B9 /* DocumentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewModel.swift; sourceTree = "<group>"; };
 		98DB8C642B21D4E700F2967D /* Plain Text Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plain Text Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98DB8C672B21D4E700F2967D /* Plain_Text_EditorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plain_Text_EditorApp.swift; sourceTree = "<group>"; };
 		98DB8C6B2B21D4E800F2967D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				98DB8C6B2B21D4E800F2967D /* Assets.xcassets */,
 				98DB8C702B21D4E800F2967D /* Plain_Text_Editor.entitlements */,
 				98DB8C6D2B21D4E800F2967D /* Preview Content */,
+				986F6BBA2B231E5600D5E0B9 /* DocumentViewModel.swift */,
 			);
 			path = "Plain Text Editor";
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			files = (
 				98DB8C792B21D76100F2967D /* TextEditorViewModel.swift in Sources */,
 				98DB8C7D2B21D77000F2967D /* ShortcutManager.swift in Sources */,
+				986F6BBB2B231E5600D5E0B9 /* DocumentViewModel.swift in Sources */,
 				98DB8C872B21E75D00F2967D /* ContentView.swift in Sources */,
 				98DB8C7F2B21D77700F2967D /* WindowManager.swift in Sources */,
 				98DB8C772B21D75A00F2967D /* AppDelegate.swift in Sources */,

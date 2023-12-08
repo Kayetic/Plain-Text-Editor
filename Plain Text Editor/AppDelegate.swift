@@ -1,74 +1,43 @@
 import SwiftUI
 import AppKit
-import UniformTypeIdentifiers
 
-class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, ObservableObject {
-    @Published var text: String = "" {
-        didSet {
-            hasUnsavedChanges = true
-        }
-    }
-    @Published var hasUnsavedChanges = false
-    var currentFileURL: URL?
-    var updateWindowTitleClosure: (() -> Void)?
-
-    func saveDocument() {
-    if let url = currentFileURL {
-        // Perform file writing in the background
-        DispatchQueue.global(qos: .userInitiated).async {
-            do {
-                try self.text.write(to: url, atomically: true, encoding: .utf8)
-                
-                // Switch back to the main thread to update the UI
-                DispatchQueue.main.async {
-                    self.hasUnsavedChanges = false
-                    self.updateWindowTitleClosure?()
-                    NSApp.reply(toApplicationShouldTerminate: true)
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    print("Failed to save document to existing file: \(error.localizedDescription)")
-                }
-            }
-        }
-    } else {
-        // If no file URL, show save panel to choose location
-        let panel = NSSavePanel()
-        panel.allowedContentTypes = [UTType.plainText]
-        
-        panel.begin { result in
-            if result == .OK, let url = panel.url {
-                do {
-                    try self.text.write(to: url, atomically: true, encoding: .utf8)
-                    self.currentFileURL = url
-                    self.hasUnsavedChanges = false
-                    self.updateWindowTitleClosure?()
-                    NSApp.reply(toApplicationShouldTerminate: true)
-                } catch {
-                    print("Failed to save document: \(error.localizedDescription)")
-                }
-            }
-        }
-    }
-}
-
+class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
+    
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
-    if hasUnsavedChanges {
-        let response = promptToSave()
-        
-        switch response {
-        case .save:
-            saveDocument()
-            return .terminateLater
-        case .cancel:
-            return .terminateCancel
-        case .discard:
-            return .terminateNow
-        }
-    }
+        // Check all window's view models for unsaved changes
+        for window in NSApp.windows {
+            if let contentView = window.contentView as? ContentView {
+                if contentView.documentViewModel.hasUnsavedChanges {
+                    let response = promptToSave()
 
-    return .terminateNow
-}
+                    switch response {
+                    case .save:
+                        contentView.documentViewModel.saveDocument()
+                        return .terminateLater
+                    case .cancel:
+                        return .terminateCancel
+                    case .discard:
+                        continue // Check the next window
+                    }
+                }
+            }
+               contentView.documentViewModel.hasUnsavedChanges {
+                let response = promptToSave()
+
+                switch response {
+                case .save:
+                    contentView.documentViewModel.saveDocument()
+                    return .terminateLater
+                case .cancel:
+                    return .terminateCancel
+                case .discard:
+                    continue // Check the next window
+                }
+            }
+        }
+
+        return .terminateNow
+    }
 
     private func promptToSave() -> SaveResponse {
         let alert = NSAlert()
@@ -96,5 +65,5 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, Observable
         case save, cancel, discard
     }
 
-
+    // Other app-wide logic if needed
 }
